@@ -1,0 +1,43 @@
+<div class="jumbtron">
+  <h1 class="display-4 text-center">View Transport Order</h1>
+  <hr />
+
+</div>
+
+<div>
+
+  <table class="table">
+
+    <thead>
+      <tr>
+        <th> FullName</th>
+        <th> Email</th>
+        <th> MobileNumber</th>
+        <th> Date</th>
+        <th> StartTime</th>
+        <th> VehicleType</th>
+        <th> VehicleCapacity</th>
+        <th> StartAddress</th>
+        <th> EndAddress</th>
+        <th> ReferenceNumber</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of OrderList">
+        <td>{{item.fullName}}</td>
+        <td>{{item.email}}</td>
+        <td>{{item.date}}</td>
+        <td>{{item.mobileNumber}}</td>
+        <td>{{item.StartTime}}</td>
+        <td>{{item.vehicleType}}</td>
+        <td>{{item.vehicleCapacity}}</td>
+        <td>{{item.startAddress}}</td>
+        <td>{{item.endAddress}}</td>
+        <td>{{item.referenceNumber}}</td>
+         
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+

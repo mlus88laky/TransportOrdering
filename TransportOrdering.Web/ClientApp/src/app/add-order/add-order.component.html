@@ -1,0 +1,139 @@
+<div class="jumbtron">
+  <h1 class="display-4 text-center">Add Transport Order</h1>
+  <button mat-raised-button type="submit" class="btn btn-success pull-right " (click)="navigateToLogin()">Admin Login</button>
+  <hr />
+
+
+  <form [formGroup]="service.formModel" autocomplete="off" (submit)="onSubmit()">
+
+
+    <div class="row">
+      <div class="col-md-5">
+        <mat-form-field appearance="outline">
+          <mat-label>Date</mat-label>
+          <input formControlName="Date" matInput [matDatepicker]="picker" required>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+          <mat-error >
+            Start Time required
+          </mat-error>
+          
+        </mat-form-field>
+      </div>
+
+      <div class="col-md-5">
+        <mat-form-field appearance="outline">
+          <mat-label>Start Time</mat-label>
+          <input matInput type="time" formControlName="StartTime" required>
+          <mat-error>
+            Start Time required
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-5">
+        <mat-form-field appearance="outline">
+          <mat-label>Vehicle Type</mat-label>
+          <mat-select formArrayName="VehicleType">
+            <mat-option *ngFor="let item of VehicleType" [value]="item.id" (onSelectionChange)="setVehicleTypeId(item.id)">
+              {{item.description}}
+            </mat-option>
+          </mat-select>
+          <mat-error>
+            Vehicle Type required
+          </mat-error>
+        </mat-form-field>
+        
+      </div>
+      <div class="row">
+        <div class="col-md-2">         
+            <mat-form-field appearance="outline">
+              <mat-label>Vehicle Capacity</mat-label>
+              <input matInput type="number" formControlName="VehicleCapacity" required>
+              <mat-error>
+                Vehicle Capacity required
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <mat-form-field appearance="outline">
+            <mat-label>Capacity Type</mat-label>
+            <mat-select formControlName="capacity" required>
+              <mat-option value="Kg">Kg</mat-option>
+              <mat-option value="Liter">Liter</mat-option>
+            </mat-select>
+            <mat-error>
+              Vehicle Capacity Type required
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+    <div class="row">
+      <div class="col-md-5">
+        <mat-form-field appearance="outline">
+          <mat-label>Start Address</mat-label>
+          <textarea matInput formControlName="StartAddress" required></textarea>
+          <mat-error>
+            Start Address required
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col-md-5">
+        <mat-form-field appearance="outline">
+          <mat-label>End Address</mat-label>
+          <textarea matInput formControlName="EndAddress" required></textarea>
+          <mat-error>
+            End Address required
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-5">
+        <mat-form-field appearance="outline">
+          <mat-label>Full Name</mat-label>
+          <input matInput formControlName="FullName" required>
+          <mat-error>
+            Full Name required
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="col-md-5">
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input matInput type="email" formControlName="Email" required>
+          <mat-error>
+            Email required
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-5">
+        <mat-form-field appearance="outline">
+          <mat-label>Mobile Number</mat-label>
+          <input matInput formControlName="MobileNumber">
+        </mat-form-field>
+      </div>
+
+      
+    </div>
+    <div class="row">
+      <div class="col-md-5">
+        <button mat-raised-button type="submit" class="btn btn-danger pull-right">Add Order</button>
+      </div>
+      <div class="col-md-5">
+        <button mat-raised-button type="submit" class="btn btn-success pull-right" (click)="service.formModel.reset()">Cancel</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+
